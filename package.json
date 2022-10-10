@@ -15,6 +15,7 @@
   "homepage": "https://github.com/journeyid/prettier-config#readme",
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
+    "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13"
   }
 }
