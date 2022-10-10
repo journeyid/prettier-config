@@ -12,10 +12,18 @@ Edit `package.json`:
 
 ```json
 {
-  // ...
   "prettier": "@journeyid/prettier-config"
 }
 ```
+
+Or, for extensibility, create a `prettier.config.cjs` file:
+
+```js
+module.exports = {
+  ...require('@journeyid/prettier-config/index.cjs'),
+}
+```
+
 
 ## About
 
