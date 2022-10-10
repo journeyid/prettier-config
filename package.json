@@ -1,8 +1,8 @@
 {
   "name": "@journeyid/prettier-config",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
-  "main": "index.json",
+  "main": "index.cjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/journeyid/prettier-config.git"
