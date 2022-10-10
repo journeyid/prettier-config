@@ -1,6 +1,6 @@
 {
   "name": "@journeyid/prettier-config",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "",
   "main": "index.json",
   "repository": {
@@ -15,6 +15,6 @@
   "homepage": "https://github.com/journeyid/prettier-config#readme",
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
-    "prettier-plugin-tailwind": "^2.2.12"
+    "prettier-plugin-tailwindcss": "^0.1.13"
   }
 }
