@@ -1,0 +1,16 @@
+{
+  "name": "@journeyid/prettier-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.json",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/journeyid/prettier-config.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/journeyid/prettier-config/issues"
+  },
+  "homepage": "https://github.com/journeyid/prettier-config#readme"
+}
