@@ -17,6 +17,20 @@ Edit `package.json`:
 }
 ```
 
+## About
+
+The plugin `"@trivago/prettier-plugin-sort-imports` allows for sorting of imports. These settings impact how imports are sorted.
+
+```json
+{
+  ...
+  "importOrder": ["^env$", "^([a-zA-Z0-9]+)$", "^@[a-zA-Z]+/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  ...
+}
+```
+
 ## Publishing package
 
 Make sure you have up-to-date `~/.npmrc`:
