@@ -8,6 +8,9 @@ yarn add --dev @journeyid/prettier-config
 
 # update package.json
 npm pkg set prettier='@journeyid/prettier-config'
+
+# [optional]
+npx sort-package-json
 ```
 
 ### Extensible config

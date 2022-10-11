@@ -2,17 +2,17 @@
   "name": "@journeyid/prettier-config",
   "version": "1.0.12",
   "description": "",
-  "main": "default.js",
+  "homepage": "https://github.com/journeyid/prettier-config#readme",
+  "bugs": {
+    "url": "https://github.com/journeyid/prettier-config/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/journeyid/prettier-config.git"
   },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/journeyid/prettier-config/issues"
-  },
-  "homepage": "https://github.com/journeyid/prettier-config#readme",
+  "author": "",
+  "main": "default.js",
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
     "prettier": "^2.7.1"
