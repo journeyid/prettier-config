@@ -1,4 +1,8 @@
-// basic, reusable prettier settings for Journey projects
+/**
+ * Core prettier config to be used
+ * across Journey projects
+ */
+
 module.exports = {
   semi: false,
   singleQuote: true,

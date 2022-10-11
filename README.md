@@ -13,6 +13,40 @@ npm pkg set prettier='@journeyid/prettier-config'
 npx sort-package-json
 ```
 
+### Lint scripts
+
+It may be appropriate to add a lint script.
+
+A more restricted one, that only formats ts and js fils in the src folder, could look like this:
+
+```json
+{
+  "scripts": {
+    "lint": "prettier --write './src/**/*.{ts,js}'"
+  }
+}
+```
+
+```sh
+# add command to package.json
+npm pkg set scripts.lint="prettier --write './src/**/*.{ts,js}'"
+
+# test it
+yarn lint
+```
+
+To format everything prettier knows how to format, do this one:
+
+```sh
+npm pkg set scripts.lint="prettier --write --ignore-unknown ."
+```
+
+In that case, maybe add a `.prettierignore.` Eg,
+
+```sh
+echo 'dist/\ncoverage/' > .prettierignore
+```
+
 ### Extensible config
 
 Instead of modifying the `prettier` key in `package.json`, you can instead create an extensible `prettier.config.cjs` file:
@@ -31,9 +65,9 @@ By default, the package `@trivago/prettier-plugin-sort-imports` will be installe
 
 ```json
 {
-  ...
-  "prettier": "@journeyid/prettier-config/core.js",
-  ...
+  // ...
+  "prettier": "@journeyid/prettier-config/core.js"
+  // ...
 }
 ```
 
