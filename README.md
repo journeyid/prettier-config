@@ -18,28 +18,56 @@ Edit `package.json`:
 
 Or, for extensibility, create a `prettier.config.cjs` file:
 
-```js
-module.exports = {
-  ...require('@journeyid/prettier-config/index.cjs'),
-}
+```bash
+echo 'module.exports = {...require("@journeyid/prettier-config")}' > prettier.config.cjs
 ```
 
+### Variation: Just the core config
 
-## About
+By default, the package `@trivago/prettier-plugin-sort-imports` will be installed and used for sorting modules. If you don't want this (for example, because you're project uses commonJS style `require` statements) you can use `core.js` instead.
 
-The plugin `"@trivago/prettier-plugin-sort-imports` allows for sorting of imports. These settings impact how imports are sorted.
+`package.json`:
 
 ```json
 {
-  ...
-  "importOrder": ["^env$", "^([a-zA-Z0-9]+)$", "^@[a-zA-Z]+/(.*)$", "^[./]"],
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true,
-  ...
+  "prettier": "@journeyid/prettier-config/core.js"
 }
 ```
 
-## Publishing package
+Or, `prettier.config.cjs`:
+
+```js
+module.exports = {
+  ...require('@journeyid/prettier-config/core'),
+}
+```
+
+### Variation: Tailwind CSS
+
+If you're using Tailwind CSS:
+
+```bash
+yarn add -D prettier-plugin-tailwindcss
+```
+
+In `prettier.config.cjs`:
+
+```js
+module.exports = {
+  ...require('./core.js'),
+  plugins: [
+    require('prettier-plugin-tailwindcss'),
+    require('@trivago/prettier-plugin-sort-imports'),
+  ],
+  importOrder: ['^env$', '^([a-zA-Z0-9]+)$', '^@[a-zA-Z]+/(.*)$', '^[./]'],
+  importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
+}
+```
+
+---
+
+### Publishing/updating this package
 
 Make sure you have up-to-date `~/.npmrc`:
 
