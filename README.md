@@ -2,27 +2,25 @@
 
 ## Usage
 
-Install the package:
-
 ```bash
+# install package
 yarn add --dev @journeyid/prettier-config
+
+# update package.json
+npm pkg set prettier='@journeyid/prettier-config'
 ```
 
-Edit `package.json`:
+### Extensible config
 
-```json
-{
-  "prettier": "@journeyid/prettier-config"
-}
-```
-
-Or, for extensibility, create a `prettier.config.cjs` file:
+Instead of modifying the `prettier` key in `package.json`, you can instead create an extensible `prettier.config.cjs` file:
 
 ```bash
 echo 'module.exports = {...require("@journeyid/prettier-config")}' > prettier.config.cjs
 ```
 
-### Variation: Just the core config
+### Variations
+
+#### Just the core config
 
 By default, the package `@trivago/prettier-plugin-sort-imports` will be installed and used for sorting modules. If you don't want this (for example, because you're project uses commonJS style `require` statements) you can use `core.js` instead.
 
@@ -30,7 +28,9 @@ By default, the package `@trivago/prettier-plugin-sort-imports` will be installe
 
 ```json
 {
-  "prettier": "@journeyid/prettier-config/core.js"
+  ...
+  "prettier": "@journeyid/prettier-config/core.js",
+  ...
 }
 ```
 
@@ -42,7 +42,7 @@ module.exports = {
 }
 ```
 
-### Variation: Tailwind CSS
+#### Tailwind CSS
 
 If you're using Tailwind CSS:
 
@@ -54,7 +54,7 @@ In `prettier.config.cjs`:
 
 ```js
 module.exports = {
-  ...require('./core.js'),
+  ...require('@journeyid/prettier-config/core'),
   plugins: [
     require('prettier-plugin-tailwindcss'),
     require('@trivago/prettier-plugin-sort-imports'),
@@ -66,6 +66,8 @@ module.exports = {
 ```
 
 ---
+
+## Dev
 
 ### Publishing/updating this package
 
