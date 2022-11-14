@@ -2,7 +2,7 @@
 
 ## Usage
 
-```bash
+```sh
 # install package
 yarn add --dev @journeyid/prettier-config
 
@@ -51,8 +51,8 @@ echo 'dist/\ncoverage/' > .prettierignore
 
 Instead of modifying the `prettier` key in `package.json`, you can instead create an extensible `prettier.config.cjs` file:
 
-```bash
-echo 'module.exports = {...require("@journeyid/prettier-config")}' > prettier.config.cjs
+```sh
+echo "module.exports = { ...require('@journeyid/prettier-config') }" > prettier.config.cjs
 ```
 
 ### Variations
@@ -83,7 +83,7 @@ module.exports = {
 
 If you're using Tailwind CSS:
 
-```bash
+```sh
 yarn add -D prettier-plugin-tailwindcss
 ```
 
@@ -117,7 +117,7 @@ Make sure you have up-to-date `~/.npmrc`:
 
 [Authenticate to Gihub Packages with personal access token](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token):
 
-```bash
+```sh
 npm login --scope=@journeyid --registry=https://npm.pkg.github.com
 
 > Username: USERNAME
@@ -127,6 +127,6 @@ npm login --scope=@journeyid --registry=https://npm.pkg.github.com
 
 [Publish the package](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#publishing-a-package-using-a-local-npmrc-file):
 
-```bash
+```sh
 npm publish
 ```
