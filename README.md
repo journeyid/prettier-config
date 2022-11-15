@@ -1,6 +1,17 @@
 # @journeyid/prettier-config
 
-## Usage
+## Setup
+
+### [Optional] Remove existing config files & dependencies
+
+You can remove your `.prettierrc` file and prettier packages that will be replaced by the Journey package.
+
+```sh
+# remove packages
+yarn remove --dev prettier prettier-plugin-tailwindcss @trivago/prettier-plugin-sort-imports
+```
+
+### Install the package
 
 ```sh
 # install package
@@ -13,27 +24,35 @@ npm pkg set prettier='@journeyid/prettier-config'
 npx sort-package-json
 ```
 
-### Lint scripts
+### Add format script
 
-It may be appropriate to add a lint script.
+It may be appropriate to add a format script.
 
 A more restricted one, that only formats ts and js fils in the src folder, could look like this:
 
 ```json
 {
   "scripts": {
-    "lint": "prettier --write './src/**/*.{ts,js}'"
+    "format": "prettier --write './src/**/*.{ts,js}'"
   }
 }
 ```
 
+You could add it with this command:
+
 ```sh
 # add command to package.json
-npm pkg set scripts.lint="prettier --write './src/**/*.{ts,js}'"
-
-# test it
-yarn lint
+npm pkg set scripts.format="prettier --write './src/**/*.{ts,js}'"
 ```
+
+Then test it:
+
+```sh
+# test it
+yarn format
+```
+
+#### Format Variations
 
 To format everything prettier knows how to format, do this one:
 
@@ -55,11 +74,11 @@ Instead of modifying the `prettier` key in `package.json`, you can instead creat
 echo "module.exports = { ...require('@journeyid/prettier-config') }" > prettier.config.cjs
 ```
 
-### Variations
+## Customization
 
-#### Just the core config
+### Just the core config
 
-By default, the package `@trivago/prettier-plugin-sort-imports` will be installed and used for sorting modules. If you don't want this (for example, because you're project uses commonJS style `require` statements) you can use `core.js` instead.
+By default, the plugin `@trivago/prettier-plugin-sort-imports` and the tailwind plugin will be installed. If you don't want these (for example, because you're project uses commonJS style `require` statements) you can use `core.js` instead.
 
 `package.json`:
 
@@ -76,29 +95,6 @@ Or, `prettier.config.cjs`:
 ```js
 module.exports = {
   ...require('@journeyid/prettier-config/core'),
-}
-```
-
-#### Tailwind CSS
-
-If you're using Tailwind CSS:
-
-```sh
-yarn add -D prettier-plugin-tailwindcss
-```
-
-In `prettier.config.cjs`:
-
-```js
-module.exports = {
-  ...require('@journeyid/prettier-config/core'),
-  plugins: [
-    require('prettier-plugin-tailwindcss'),
-    require('@trivago/prettier-plugin-sort-imports'),
-  ],
-  importOrder: ['^env$', '^([a-zA-Z0-9]+)$', '^@[a-zA-Z]+/(.*)$', '^[./]'],
-  importOrderSeparation: true,
-  importOrderSortSpecifiers: true,
 }
 ```
 
